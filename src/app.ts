@@ -4,6 +4,7 @@ const cors = require('cors');
 import connectDB from './config/db';
 import authRoutes from './routes/authRoutes';
 import taskRoutes from './routes/taskRoutes';
+import refreshRoutes from './routes/refreshRoutes';
 import { notFound, errorHandler } from './middlewares/errorMiddleware';
 
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
+app.use('/api', refreshRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
